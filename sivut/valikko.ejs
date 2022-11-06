@@ -1,0 +1,7 @@
+<%- include('alku', {kieli,otsikko,aihe}) %>
+    <% valinnat.forEach(valinta=>{ %>
+        <a href="<%=valinta.reitti %>"><button>
+                <%= valinta.teksti %>
+            </button></a>
+        <% }) %>
+            <%- include('loppu',{valikkoteksti:null}) %>

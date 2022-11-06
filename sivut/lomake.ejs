@@ -1,0 +1,18 @@
+<%- include('alku', {kieli,otsikko,aihe}) %>
+    <form action="<%= toiminto %>" method="POST">
+        <div>
+            <% kentat.forEach(kentta=>{ %>
+                <p id="<%= kentta.tyyppi %>">
+                    <label for="<%= kentta.id %>">
+                        <%= kentta.nimi %>
+                    </label>
+                    <input type="<%= kentta.tyyppi %>" id="<%= kentta.id %>" name="<%= kentta.name %>"
+                        size="<%= kentta.koko %>" value="<%= kentta.value %>" <%=kentta.readonly %> >
+                </p>
+                <% }) %>
+        </div>
+        <button type="submit">
+            <%= laheta %>
+        </button>
+    </form>
+    <%- include('loppu',{valikkoteksti}) %>

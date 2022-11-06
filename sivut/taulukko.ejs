@@ -1,0 +1,25 @@
+<%- include('alku', {kieli,otsikko,aihe}) %>
+    <table>
+        <thead>
+            <tr>
+                <% sarakeotsikot.forEach(sarakeotsikko=> { %>
+                    <th>
+                        <%= sarakeotsikko %>
+                    </th>
+                    <% }) %>
+            </tr>
+        </thead>
+        <tbody>
+            <% tulostaulu.forEach(data=>{ %>
+                <tr>
+                    <% Object.values(data).forEach(arvo=>{ %>
+                        <td>
+                            <%= arvo %>
+                        </td>
+                        <% }) %>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <%- include('loppu',{valikkoteksti}) %>

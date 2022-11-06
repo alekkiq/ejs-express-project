@@ -1,0 +1,11 @@
+<%- include('alku', {kieli,otsikko,aihe}) %>
+    <div class="kentat">
+        <% kentat.forEach(kentta=>{ %>
+            <div class="kentta"><span class="info">
+                    <%= kentta.nimi %>:
+                </span>
+                <%= kentta.tieto %>
+            </div>
+            <% }) %>
+    </div>
+    <%- include('loppu',{valikkoteksti}) %>
