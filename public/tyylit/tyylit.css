@@ -1,0 +1,61 @@
+main, form{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+h1{
+    font-size: 36px;
+    color: red;
+}
+label {
+    font-size: 24px;
+}
+
+button{
+    font-size: 18px;
+    width: 15em;
+    height: 3em;
+    margin-bottom: 1em;
+}
+input[type="text"] {
+    padding: 3px;
+    margin: 3px;
+}
+#text {
+    display:flex;
+}
+button:hover {
+    color: #000;
+    background-color: #FFF;
+}
+
+.kentta {
+    padding: 0 5px;
+}
+.kentat{
+    font-size: 20px;
+    border: 1px solid #000;
+    margin-bottom: 1em;
+}
+
+.info, .virhe{
+    
+    font-weight: bold;
+    font-size: 22px;
+    color:#000;
+}
+
+table{
+    margin-bottom:3rem;
+}
+
+table, th,td{
+    border: 1px solid #000;
+    padding:1rem;
+}
+td {
+    font-size: 20px;
+}
+th{
+    font-size: 30px;
+}
