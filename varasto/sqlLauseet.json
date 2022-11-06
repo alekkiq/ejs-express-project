@@ -1,0 +1,18 @@
+{
+    "haeKaikki": [
+        "select numero,nimi,vuosi,lukumaara,genre from peli"
+    ],
+    "hae": [
+        "select numero,nimi,vuosi,lukumaara,genre from peli where numero=?"
+    ],
+    "lisaa": [
+        "insert into peli (numero,nimi,vuosi,lukumaara,genre) values(?,?,?,?,?)"
+    ],
+    "paivita": [
+        "update peli set nimi=?,vuosi=?,lukumaara=?,genre=? where numero=?"
+    ],
+    "poista": [
+        "delete from peli where numero=?"
+    ],
+    "perusavain": "numero"
+}
