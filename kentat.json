@@ -1,0 +1,62 @@
+{
+    "FI": {
+        "kieli": "fi",
+        "otsikko": "Syöttölomake",
+        "aihe": "Syötä tiedot",
+        "toiminto": "/talletatiedot",
+        "kentat": [
+            {
+                "nimi": "Nimi",
+                "tyyppi": "text",
+                "name": "nimi"
+            },
+            {
+                "nimi": "Vuosi",
+                "tyyppi": "text",
+                "name": "vuosi"
+            },
+            {
+                "nimi": "Lukumäärä",
+                "tyyppi": "text",
+                "name": "lukumaara"
+            },
+            {
+                "nimi": "Genre",
+                "tyyppi": "text",
+                "name": "genre"
+            }
+        ],
+        "laheta": "Lähetä tiedot",
+        "valikkoteksti": "Valikko"
+    },
+    "EN": {
+        "kieli": "en",
+        "otsikko": "Input",
+        "aihe": "Input data",
+        "toiminto": "/savedata",
+        "kentat": [
+            {
+                "nimi": "Name",
+                "tyyppi": "text",
+                "name": "nimi"
+            },
+            {
+                "nimi": "Release year",
+                "tyyppi": "text",
+                "name": "vuosi"
+            },
+            {
+                "nimi": "Amount",
+                "tyyppi": "text",
+                "name": "lukumaara"
+            },
+            {
+                "nimi": "Genre",
+                "tyyppi": "text",
+                "name": "genre"
+            }
+        ],
+        "laheta": "Submit",
+        "valikkoteksti": "Menu"
+    }
+}
