@@ -6,8 +6,8 @@ const app = express();
 
 const { port, host } = require("./config.json");
 
-const Tietovarasto = require("./varasto/tietovarastokerros");
-const varasto = new Tietovarasto();
+const Repository = require("./varasto/tietovarastokerros");
+const storage = new Repository();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "sivut"));
@@ -28,7 +28,7 @@ app.get("/", (req, res) => res.render("valikko", {
     ]
 }));
 
-app.get("/haeKaikki", (req, res) => varasto.haeKaikki().then(tulostaulu => res.render("taulukko", {
+app.get("/haeKaikki", (req, res) => storage.haeKaikki().then(tulostaulu => res.render("taulukko", {
     kieli: "fi",
     otsikko: "Hae kaikki",
     aihe: "Pelit",
@@ -62,7 +62,7 @@ app.get("/hae", (req, res) => res.render("lomake", {
 app.post("/haeYksi", async (req, res) => {
     try {
         const numero = req.body.numero;
-        const tulos = await varasto.hae(numero);
+        const tulos = await storage.hae(numero);
         const kentat = [];
         for (const [avain, tieto] of Object.entries(tulos)) {
             const [eka, ...loput] = avain;
@@ -101,7 +101,7 @@ app.get("/lisaa", (req, res) => res.render("lomake", {
 app.post("/talletatiedot", async (req, res) => {
     try {
         const peli = req.body;
-        const status = await varasto.lisaa(peli);
+        const status = await storage.lisaa(peli);
         lahetaTilaviesti(res, status);
     }
     catch (err) {
@@ -128,7 +128,7 @@ app.get("/muuta", (req, res) => res.render("lomake", {
 app.post("/haeMuutettava", async (req, res) => {
     try {
         const numero = req.body.numero;
-        const peli = await varasto.hae(numero);
+        const peli = await storage.hae(numero);
         res.render("lomake", {
             kieli: "fi",
             otsikko: "Muutoslomake",
@@ -150,7 +150,7 @@ app.post("/haeMuutettava", async (req, res) => {
     }
 });
 
-app.post("/talletamuutetut", (req, res) => varasto.paivita(req.body)
+app.post("/talletamuutetut", (req, res) => storage.paivita(req.body)
     .then(status => lahetaTilaviesti(res, status))
     .catch(err => lahetaTilaviesti(res, err)));
 
@@ -174,7 +174,7 @@ app.get("/poista", (req, res) => res.render("lomake", {
     ]
 }));
 
-app.post("/poista", (req, res) => varasto.poista(req.body.numero)
+app.post("/poista", (req, res) => storage.poista(req.body.numero)
     .then(status => lahetaTilaviesti(res, status))
     .catch(err => lahetaTilaviesti(res, err)));
 
